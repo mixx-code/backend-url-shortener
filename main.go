@@ -40,6 +40,7 @@ func main() {
 		protected := api.Group("/")
 		protected.Use(middlewares.AuthMiddleware())
 		{
+			protected.GET("/profile", controllers.GetProfile)
 			protected.POST("/shorten", controllers.CreateShortURL)
 			protected.GET("/urls", controllers.GetURLs)
 			protected.GET("/stats/:shortCode", controllers.GetURLStats)
